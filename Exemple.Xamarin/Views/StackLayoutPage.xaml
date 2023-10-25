@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Exemple.Xamarin.Views.StackLayoutPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="10" BackgroundColor="Khaki">
+            <Label Text="Cliquez sur le bouton" VerticalOptions="Center" FontSize="30" FontAttributes="Italic"  HorizontalOptions="Center" Margin="20"/>
+            <Button Text="Clic" FontSize="30" BackgroundColor="Aqua" TextColor="White"></Button>
+            <RelativeLayout BackgroundColor="Silver" VerticalOptions="FillAndExpand">
+                <BoxView BackgroundColor="Yellow" x:Name="yellowBox"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-25, Factor=0.5}"
+                         RelativeLayout.YConstraint="0"
+                         WidthRequest="50" HeightRequest="50">
+
+                </BoxView>
+                <BoxView BackgroundColor="Red"  
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, Property=X, Constant=0,Factor=1,ElementName=yellowBox}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Y, Constant=50,Factor=1,ElementName=yellowBox}"
+                     WidthRequest="50" HeightRequest="50">
+                </BoxView>
+            </RelativeLayout>
+            <Grid VerticalOptions="FillAndExpand" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <BoxView BackgroundColor="Brown" Grid.Row="0" Grid.Column="0"></BoxView>
+                <BoxView BackgroundColor="Green" Grid.Row="1" Grid.Column="0"></BoxView>
+                <BoxView BackgroundColor="Magenta" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"></BoxView>
+            </Grid>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
